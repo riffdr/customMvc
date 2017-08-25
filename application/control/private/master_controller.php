@@ -11,7 +11,7 @@
 include_once(__DIR__ . "/../../helpers/string_helper.php");
 
 /*Models*/
-include_once(__DIR__ . "/../../model/defaultModel.php");
+include_once(__DIR__ . "/../../model/default_model.php");
 
 class Master_controller {
     protected $root;
@@ -28,16 +28,6 @@ class Master_controller {
             session_unset();
             session_destroy();
             redirect("signin");
-
-        } else {
-            /*prepare DB and connection to DB tables */
-            $this->defaultModel = new DefaultModel();
-
-            $this->data_view["menu_options"] = $this->menu_options_model->select_menu_options($_SESSION["access_level"]);
-            $this->data_view["all_sites"] = $this->site_info_model->select_all();
-
-            $this->root = determine_base();
-            $this->base_url = $this->root;
         }
     }
 

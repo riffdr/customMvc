@@ -2,7 +2,6 @@
 include_once(__DIR__ . '/db_connection.php');
 
 
-
 class Master_model extends Db_connection{
     protected $database;
     protected $table_name;

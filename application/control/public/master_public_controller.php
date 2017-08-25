@@ -6,7 +6,7 @@
  * Time: 12:45
  */
 
-class Main_controller {
+class Master_Public_Controller {
 
     protected $site_languages;
     public $lang;
