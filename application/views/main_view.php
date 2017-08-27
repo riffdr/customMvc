@@ -19,10 +19,21 @@
     <script src="/resources/js/jquery.js"></script>
     <script src="/resources/js/main.js"></script>
 <body class="en">
+    <header>
+        <h2>
+           <?= $this->data_view["page_heading"] ?>
+        </h2>
+    </header>
     <article>
         <h1>
-            Howdy!s
+            <?= $this->data_view["h1"] ?>
         </h1>
     <article>
+        <footer>
+
+        </footer>
+
 </body>
+
+
 </html>

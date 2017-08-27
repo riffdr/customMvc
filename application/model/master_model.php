@@ -4,7 +4,7 @@ include_once(__DIR__ . '/db_connection.php');
 
 class Master_model extends Db_connection{
     protected $database;
-    protected $table_name;
+    protected $table_name; // VAlue will be initialized given a table name . Rule of thumb: name your models according to your DB table names
 
     public function __construct() {
         parent::__construct();
@@ -13,21 +13,21 @@ class Master_model extends Db_connection{
         $this->database = $database_connection->return_db();
     }
 
-    public function select_all(){
+    public function select_all(){ // Return all rows from table
         $query = "SELECT * FROM " .$this->table_name;
         $result = $this->database->query($query);
 
         return  $this->parse_sql_data($result);
     }
 
-    public function select($string_what){
+    public function select($string_what){ // Returns all rows and column from table give an column name
         $query = "SELECT ".$string_what." FROM " .$this->table_name;
         $result = $this->database->query($query);
 
         return  $this->parse_sql_data($result);
     }
 
-    public function select_where($selection, $where, $res_number = null){
+    public function select_where($selection, $where, $res_number = null){ // Returns all columns for a $res_number of rows where Array $where('key'=>value) is met
         $array_keys = array_keys($where);
         $array_values = array_values($where);
 

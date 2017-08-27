@@ -2,15 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: miguel
- * Date: 25/12/2016
+ * Date: 19/03/2015
  * Time: 12:45
  */
 
-class Master_Public_Controller {
+/*Helpers*/
 
-    protected $site_languages;
-    public $lang;
-    protected $translationLibrary;
+include_once(__DIR__ . "../helpers/string_helper.php");
+
+
+
+class Master_controller {
+    protected $root;
+    protected $base_url;
+    protected $site;
+    protected $page;
+
+    protected $data_view; //  This date stores EVERY  output on the views of the site;
 
     public function __construct($lang = null) {
         $this->site_languages = array("en", "de");
@@ -29,12 +37,12 @@ class Master_Public_Controller {
     }
 
     private function _loadView($page = null){
-        include_once(__DIR__ . "/../libraries/translations/".$this->lang."_lang_library.php");  // Load translation library for the selected language
+        include_once(__DIR__ . "../libraries/translations/".$this->lang."_lang_library.php");  // Load translation library for the selected language
         // Method to load the views from any controller that extends the Main_controller class. If no page is defined, the main_view template will be loaded
         if(!$page){
-            include_once(__DIR__ . "/../views/main_view.php");
+            include_once(__DIR__ . "/../../views/public/main_view.php");
         }else{
-            include_once(__DIR__ . "/../views/".$page."_view.php");
+            include_once(__DIR__ . "/../../views/".$page."_view.php");
         }
     }
 

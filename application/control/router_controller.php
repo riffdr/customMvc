@@ -32,15 +32,15 @@ class Router{
                 "parameters" => array("[a-z]{2}")
             ),
 
-            /* Api routes  */
-            "/users/" => array(
-                "class" => "users_controller",
-                "function" => "getUsers"
+            /* Example routes  */
+            "/sample/" => array(
+                "class" => "sampleControllerClass",
+                "function" => "sampleMethod"
             ),
 
-            "/users/([0-9]*)/" => array(
-                "class" => "users_controller",
-                "function" => "getUsers",
+            "/sample/([0-9]*)/" => array(
+                "class" => "sampleControllerClass",
+                "function" => "sampleMethod",
                 "parameters" => array("([0-9]*)")
             ),
 s
