@@ -50,7 +50,7 @@ class Master_model extends Db_connection{
 
     }
 
-    public function insert($data){
+    public function insert($data){ // Inserts data by passing array in which ArrayKey === table column, and ArrayValue == column data. Returns id of row once it is successfully inserted.
         $table_fields = array_keys($data);
 
         $query = "INSERT INTO " .$this->table_name. "(";
@@ -67,7 +67,7 @@ class Master_model extends Db_connection{
         return ($this->database->query($query)) ? $this->database->insert_id : false;
     }
 
-    public function update($data, $where){
+    public function update($data, $where){  // Updates data by passing 2 arrays in which Array 1 ArrayKey === table column, and Array 1 ArrayValue == column data, matching the rows where  Array 2 ArrayKey === table column, and Array 2 ArrayValue == column data,
         $table_fields = array_keys($data);
         $where_fields = array_keys($where);
 
@@ -89,7 +89,7 @@ class Master_model extends Db_connection{
         return ($this->database->query($query)) ? true : false;
     }
 
-    public function delete($where){
+    public function delete($where){ // Deletes those rows where
         $where_fields = array_keys($where);
         $query = "DELETE FROM " .$this->table_name. " WHERE ";
         for($i=0; $i<count($where_fields); $i++){
